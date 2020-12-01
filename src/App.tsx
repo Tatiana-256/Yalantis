@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import {HashRouter} from 'react-router-dom';
+import {Provider, useDispatch} from 'react-redux';
+import store from './resux-state/store';
+import {getUsers} from './resux-state/actions';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        dispatch(getUsers())
+    }, [])
+
+    return (
+        <div className="App">
+
+        </div>
+    );
 }
 
 export default App;
+
+
+export function AppGlobal() {
+
+    return (
+        <HashRouter>
+            <Provider store={store}>
+                <div className='App_container'>
+                    <div className="App">
+                        <App/>
+                    </div>
+                </div>
+            </Provider>
+        </HashRouter>
+    );
+}
