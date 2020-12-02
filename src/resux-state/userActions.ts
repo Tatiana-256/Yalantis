@@ -1,5 +1,5 @@
 import {baseThunkType, InferActionsTypes} from "./store";
-import {IUser} from "./reducer";
+import {IUser} from "./userReducer";
 import {usersAPI} from "../requests/api";
 import {dataGenerator, Dictionary} from "./dataGenerator";
 

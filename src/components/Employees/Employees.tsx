@@ -9,7 +9,6 @@ export const Employees = () => {
 
     const {users} = useSelector((store: AppStateType) => store)
 
-
     return <div className={styles.employees_wrapper}>
         <div>Employees</div>
         <div className={styles.basic_container} style={{display: "flex"}}>

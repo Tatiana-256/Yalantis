@@ -1,5 +1,5 @@
 import {Dictionary} from "./dataGenerator";
-import {usersActionsType} from "./actions";
+import {usersActionsType} from "./userActions";
 
 export type initialStateType = typeof initialState
 const initialState = {

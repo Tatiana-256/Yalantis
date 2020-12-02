@@ -1,5 +1,5 @@
 import axios from "axios";
-import {IUser} from "../resux-state/reducer";
+import {IUser} from "../resux-state/userReducer";
 
 const dev = 'https://yalantis-react-school-api.yalantis.com/api/task0/users'
 

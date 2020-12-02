@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {HashRouter} from 'react-router-dom';
-import {Provider, useDispatch, useSelector} from 'react-redux';
-import store, {AppStateType} from './resux-state/store';
-import {getUsers} from './resux-state/actions';
+import {Provider, useDispatch} from 'react-redux';
+import store from './resux-state/store';
+import {getUsers} from './resux-state/userActions';
 import {Employees} from "./components/Employees/Employees";
 import {EmployeesBirthday} from "./components/EmployeesBirthday/EmployeesBirthday";
+import {getUsersBirthday} from "./resux-state/birthdayActions";
 
 
 function App() {
@@ -13,12 +14,10 @@ function App() {
 
     useEffect(() => {
         dispatch(getUsers())
+        dispatch(getUsersBirthday())
+
+
     }, [])
-
-
-    const {users} = useSelector((store: AppStateType) => store)
-
-    console.log(users)
 
     return (
         <div className="App">
@@ -37,7 +36,7 @@ export function AppGlobal() {
         <HashRouter>
             <Provider store={store}>
                 <div className='App_container'>
-                        <App/>
+                    <App/>
                 </div>
             </Provider>
         </HashRouter>

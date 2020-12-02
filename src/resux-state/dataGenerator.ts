@@ -1,4 +1,4 @@
-import {IUser} from "./reducer";
+import {IUser} from "./userReducer";
 
 
 export const dataGenerator = (result: Array<IUser>) => {
@@ -14,6 +14,28 @@ export const dataGenerator = (result: Array<IUser>) => {
     });
 
     return dictionary
+}
+
+
+export const dataMonthsGenerator = () => {
+    const monthsDictionary: Dictionary<Array<IUser>> = {};
+
+
+    const months = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"]
+
+    months.forEach(m => monthsDictionary[m] = [])
+    console.log(monthsDictionary)
+    return monthsDictionary
+
+}
+
+
+export const getMonth = (userBirthday: string) => {
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let d = new Date(userBirthday);
+    let monthName = months[d.getMonth()];
+    return monthName
 }
 
 export interface Dictionary<T> {

@@ -1,11 +1,13 @@
 import {createStore, Action, combineReducers, applyMiddleware} from "redux";
 import {ThunkAction} from "redux-thunk";
 import thunkMiddleware from "redux-thunk"
-import {usersReducer} from "./reducer";
+import {usersReducer} from "./userReducer";
+import {birthdayReducer} from "./birthdayReducer";
 
 
 let reducers = combineReducers({
     users: usersReducer,
+    usersBirthday: birthdayReducer
 
 })
 

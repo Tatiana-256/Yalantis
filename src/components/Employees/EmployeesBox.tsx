@@ -1,10 +1,11 @@
 import React, {ChangeEvent} from 'react';
-import {IUser} from "../../resux-state/reducer";
+import {IUser} from "../../resux-state/userReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../resux-state/store";
 import {Employee} from "./Employee";
 import styles from './employee.module.css'
-import {usersActions} from "../../resux-state/actions";
+import {usersActions} from "../../resux-state/userActions";
+import {usersBirthdayActions} from "../../resux-state/birthdayActions";
 
 
 interface IProps {
@@ -19,8 +20,16 @@ export const EmployeesBox: React.FC<IProps> = ({userBox}) => {
 
     const dispatch = useDispatch();
 
-    const onChangeCheckBox = (userId: string) => {
-        dispatch(usersActions.changeIsChecked(userBox.boxName, userId))
+    const onChangeCheckBox = (user: IUser) => {
+        debugger
+        if (user.isChecked) {
+            debugger
+            dispatch(usersActions.changeIsChecked(userBox.boxName, user.id))
+            dispatch(usersBirthdayActions.removeUserBirthday(user))
+        } else {
+            dispatch(usersActions.changeIsChecked(userBox.boxName, user.id))
+            dispatch(usersBirthdayActions.setUserBirthday(user))
+        }
     }
 
 
