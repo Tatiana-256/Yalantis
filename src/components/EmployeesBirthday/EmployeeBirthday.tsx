@@ -16,6 +16,6 @@ export const EmployeeBirthday: React.FC<IProps> = ({user}) => {
     const dateOfBirth = `${date} ${month}, ${year} year`
 
     return <li style={{width: "80%", padding: "1% 0"}}>
-        {user.lastName} {user.lastName} {dateOfBirth}
+        {user.lastName} {user.lastName} - {dateOfBirth}
     </li>
 }

@@ -30,7 +30,7 @@ export const Employees: React.FC<IProps> = ({userBox}) => {
         }
     };
     return <div className={styles.employees_container}>
-        <div style={{fontWeight: "bold"}}>{userBox.boxName}</div>
+        <div style={{fontWeight: "bold", backgroundColor: "#ACE5FF"}}>{userBox.boxName}</div>
         {userBox.users.length === 0 ? <div>-----</div>
             :
             userBox.users.map(y => <Employee user={y}
