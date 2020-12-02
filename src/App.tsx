@@ -4,9 +4,9 @@ import {HashRouter} from 'react-router-dom';
 import {Provider, useDispatch} from 'react-redux';
 import store from './resux-state/store';
 import {getUsers} from './resux-state/userActions';
-import {Employees} from "./components/Employees/Employees";
-import {EmployeesBirthday} from "./components/EmployeesBirthday/EmployeesBirthday";
+import {EmployeesContainer} from "./components/Employees/EmployeesContainer";
 import {getUsersBirthday} from "./resux-state/birthdayActions";
+import {EmployeesBirthdayContainer} from './components/EmployeesBirthday/EmployeesBirthdayContainer';
 
 
 function App() {
@@ -21,8 +21,8 @@ function App() {
 
     return (
         <div className="App">
-            <Employees/>
-            <EmployeesBirthday/>
+            <EmployeesContainer/>
+            <EmployeesBirthdayContainer/>
         </div>
     );
 }

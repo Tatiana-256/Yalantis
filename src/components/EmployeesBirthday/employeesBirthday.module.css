@@ -1,0 +1,14 @@
+.month_box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.birthday_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+}

@@ -1,9 +1,6 @@
-import React, {ChangeEvent, useState} from 'react';
+import React from 'react';
 import {IUser} from "../../resux-state/userReducer";
 import styles from './employee.module.css'
-import {useDispatch} from "react-redux";
-import {usersActions} from "../../resux-state/userActions";
-import {usersBirthdayActions} from "../../resux-state/birthdayActions";
 
 
 interface IProps {

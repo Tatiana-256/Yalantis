@@ -1,19 +1,43 @@
-import React from 'react';
-import {useSelector} from "react-redux";
+import React, {ChangeEvent} from 'react';
+import {IUser} from "../../resux-state/userReducer";
+import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../resux-state/store";
+import {Employee} from "./Employee";
 import styles from './employee.module.css'
-import {EmployeesBox} from "./EmployeesBox";
+import {usersActions} from "../../resux-state/userActions";
+import {usersBirthdayActions} from "../../resux-state/birthdayActions";
 
 
-export const Employees = () => {
+interface IProps {
+    userBox: {
+        boxName: string,
+        users: Array<IUser>
+    }
 
-    const {users} = useSelector((store: AppStateType) => store)
+}
 
-    return <div className={styles.employees_wrapper}>
-        <div>Employees</div>
-        <div className={styles.basic_container} style={{display: "flex"}}>
-            {Object.entries(users.users).map(x => <EmployeesBox userBox={{boxName: x[0], users: x[1]}}/>)}
+export const Employees: React.FC<IProps> = ({userBox}) => {
 
-        </div>
+    const dispatch = useDispatch();
+
+    const onChangeCheckBox = (user: IUser) => {
+        if (user.isChecked) {
+            dispatch(usersActions.changeIsChecked(userBox.boxName, user.id))
+            dispatch(usersBirthdayActions.removeUserBirthday(user))
+        } else {
+            dispatch(usersActions.changeIsChecked(userBox.boxName, user.id))
+            dispatch(usersBirthdayActions.setUserBirthday(user))
+        }
+    }
+
+
+    return <div className={styles.employees_container}>
+        <div style={{fontWeight: "bold"}}>{userBox.boxName}</div>
+        {userBox.users.length === 0 ? <div>-----</div>
+            :
+            userBox.users.map(y => <Employee user={y}
+                                             onChangeCheckBox={onChangeCheckBox}
+                                             key={y.id}/>)}
     </div>
+
 }
