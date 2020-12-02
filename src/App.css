@@ -1,12 +1,12 @@
 .App {
-    text-align: center;
-    display: flex;
-    width: 90%;
-    margin-top: 5%;
+  text-align: center;
+  display: flex;
+  width: 90%;
+  margin-top: 5%;
 }
 
 .App_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
