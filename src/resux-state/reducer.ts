@@ -1,11 +1,9 @@
-// import {ingredientsActionsType} from "./Ingredients-actions";
-// import {IIngredient} from "../../Fin-Requests/Ingredients-API";
-
+import {Dictionary} from "./dataGenerator";
 import {usersActionsType} from "./actions";
 
 export type initialStateType = typeof initialState
 const initialState = {
-    users: [] as Array<IUser>
+    users: {} as Dictionary<Array<IUser>>
 };
 
 
@@ -14,7 +12,18 @@ export const usersReducer = (state = initialState, action: usersActionsType): in
         case "usersReducer/GET_USERS":
             return {
                 ...state,
-                users: action.users
+                users: {...action.users}
+            }
+        case "usersReducer/CHANGE_USER_IS_CHECKED":
+            let newUserState = {...state.users}
+            newUserState[action.letterBox].forEach(x => {
+                if (x.id === action.id) {
+                    x.isChecked = !x.isChecked
+                }
+            })
+            return {
+                ...state,
+                users: newUserState
             }
     }
     return state
@@ -26,5 +35,6 @@ export interface IUser {
     id: string,
     firstName: string,
     lastName: string,
-    dob: string
+    dob: string,
+    isChecked: boolean
 }

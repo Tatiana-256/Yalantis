@@ -1,0 +1,26 @@
+.employees_wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+.basic_container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.employees_container {
+    width: 44%;
+    padding: 3% 0 0 3%;
+    border-bottom: 1px solid gray;
+}
+
+.employee_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 7%;
+}
+

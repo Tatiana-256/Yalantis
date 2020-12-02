@@ -17,7 +17,6 @@ export const usersAPI = {
     getUsers() {
         return instance.get<Array<IUser>>('')
             .then(res => {
-                    debugger
                     console.log(res.data)
                     return res.data
                 }
