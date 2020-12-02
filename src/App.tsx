@@ -13,11 +13,9 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getUsers())
+        dispatch(getUsers());
         dispatch(getUsersBirthday())
-
-
-    }, [])
+    }, []);
 
     return (
         <div className="App">
@@ -27,11 +25,7 @@ function App() {
     );
 }
 
-export default App;
-
-
 export function AppGlobal() {
-
     return (
         <HashRouter>
             <Provider store={store}>

@@ -1,7 +1,6 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import {IUser} from "../../resux-state/userReducer";
-import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../resux-state/store";
+import {useDispatch} from "react-redux";
 import {Employee} from "./Employee";
 import styles from './employee.module.css'
 import {usersActions} from "../../resux-state/userActions";
@@ -22,15 +21,14 @@ export const Employees: React.FC<IProps> = ({userBox}) => {
 
     const onChangeCheckBox = (user: IUser) => {
         if (user.isChecked) {
-            dispatch(usersActions.changeIsChecked(userBox.boxName, user.id))
+            dispatch(usersActions.changeIsChecked(userBox.boxName, user));
             dispatch(usersBirthdayActions.removeUserBirthday(user))
+
         } else {
-            dispatch(usersActions.changeIsChecked(userBox.boxName, user.id))
+            dispatch(usersActions.changeIsChecked(userBox.boxName, user));
             dispatch(usersBirthdayActions.setUserBirthday(user))
         }
-    }
-
-
+    };
     return <div className={styles.employees_container}>
         <div style={{fontWeight: "bold"}}>{userBox.boxName}</div>
         {userBox.users.length === 0 ? <div>-----</div>
@@ -40,4 +38,4 @@ export const Employees: React.FC<IProps> = ({userBox}) => {
                                              key={y.id}/>)}
     </div>
 
-}
+};

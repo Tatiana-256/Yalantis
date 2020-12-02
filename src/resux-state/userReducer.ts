@@ -1,5 +1,6 @@
 import {Dictionary} from "./dataGenerator";
 import {usersActionsType} from "./userActions";
+import {deleteElemInLC, pointedUsers, saveState} from "../requests/localStorage";
 
 export type initialStateType = typeof initialState
 const initialState = {
@@ -13,14 +14,20 @@ export const usersReducer = (state = initialState, action: usersActionsType): in
             return {
                 ...state,
                 users: {...action.users}
-            }
+            };
         case "usersReducer/CHANGE_USER_IS_CHECKED":
             let newUserState = {...state.users}
             newUserState[action.letterBox].forEach(x => {
-                if (x.id === action.id) {
+                if (x.id === action.user.id) {
                     x.isChecked = !x.isChecked
+                    if (x.isChecked) {
+                        saveState(pointedUsers, action.user)
+                    } else {
+                        deleteElemInLC(pointedUsers, action.user)
+                    }
+
                 }
-            })
+            });
             return {
                 ...state,
                 users: newUserState
@@ -28,7 +35,7 @@ export const usersReducer = (state = initialState, action: usersActionsType): in
     }
     return state
 
-}
+};
 
 
 export interface IUser {

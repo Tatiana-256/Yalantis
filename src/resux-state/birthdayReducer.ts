@@ -14,22 +14,20 @@ export const birthdayReducer = (state = initialState, action: usersBirthdayActio
             return {
                 ...state,
                 usersBirthday: {...action.usersBirthday}
-            }
+            };
         case "usersBirthdayReducer/SET_USER_BIRTHDAY": {
-            const monthName = getMonth(action.user.dob)
-            const newBirthdayState = {...state.usersBirthday}
-            console.log(newBirthdayState)
-            newBirthdayState[monthName].push(action.user)
+            const monthName = getMonth(action.user.dob);
+            const newBirthdayState = {...state.usersBirthday};
+            newBirthdayState[monthName].push(action.user);
             return {
                 ...state,
                 usersBirthday: newBirthdayState
             }
         }
         case "usersBirthdayReducer/REMOVE_USER_BIRTHDAY": {
-            let newBirthdayState = {...state.usersBirthday}
-            debugger
-            const monthName2 = getMonth(action.user.dob)
-            newBirthdayState[monthName2] = newBirthdayState[monthName2].filter(u => u.id !== action.user.id)
+            let newBirthdayState = {...state.usersBirthday};
+            const monthName2 = getMonth(action.user.dob);
+            newBirthdayState[monthName2] = newBirthdayState[monthName2].filter(u => u.id !== action.user.id);
             return {
                 ...state,
                 usersBirthday: newBirthdayState
@@ -37,4 +35,4 @@ export const birthdayReducer = (state = initialState, action: usersBirthdayActio
         }
     }
     return state
-}
+};
