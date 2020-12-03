@@ -1,6 +1,10 @@
 import {IUser} from "./userReducer";
 import {pointedUsers, restoreState} from "../requests/localStorage";
 
+export interface Dictionary<T> {
+    [Key: string]: T;
+}
+
 export const dataGenerator = (result: Array<IUser>) => {
     const dictionary: Dictionary<Array<IUser>> = {};
     for (let i = 65; i < 91; i++) {
@@ -44,10 +48,6 @@ export const dataMonthsGenerator = () => {
 
 export const getMonth = (userBirthday: string) => {
     let d = new Date(userBirthday);
-    let monthName = months[d.getMonth()];
-    return monthName;
+    return  months[d.getMonth()];
 };
 
-export interface Dictionary<T> {
-    [Key: string]: T;
-}
