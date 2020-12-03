@@ -1,0 +1,25 @@
+.start_page_container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start_page_press {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+    width: 45%;
+    background-color: #46b3e6;
+    font-weight: bold;
+    font-size: 2rem;
+    border-radius: 63px;
+    color: white;
+}
+
+.start_page_press:hover{
+    background-color: #1aa2e6;
+
+}
