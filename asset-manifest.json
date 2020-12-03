@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Yalantis/static/css/main.425519cb.chunk.css",
-    "main.js": "/Yalantis/static/js/main.c9a82fe0.chunk.js",
-    "main.js.map": "/Yalantis/static/js/main.c9a82fe0.chunk.js.map",
+    "main.js": "/Yalantis/static/js/main.a8fb628a.chunk.js",
+    "main.js.map": "/Yalantis/static/js/main.a8fb628a.chunk.js.map",
     "runtime-main.js": "/Yalantis/static/js/runtime-main.565274c2.js",
     "runtime-main.js.map": "/Yalantis/static/js/runtime-main.565274c2.js.map",
     "static/js/2.82f1cd99.chunk.js": "/Yalantis/static/js/2.82f1cd99.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.565274c2.js",
     "static/js/2.82f1cd99.chunk.js",
     "static/css/main.425519cb.chunk.css",
-    "static/js/main.c9a82fe0.chunk.js"
+    "static/js/main.a8fb628a.chunk.js"
   ]
 }
